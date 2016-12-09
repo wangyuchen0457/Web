@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+h1{
+	text-align:center;
+	font-family:微软雅黑; 
+	font-size: xx-large;
+}
+#logbody{
+	background:repeat-x;
+	background-image: url("../image/danya.jpg");
+}
+
+.bt {
+	border-radius: 5px; background:red;
+	font-family:微软雅黑;
+	width: 90px;
+	height: 30px;
+	 background-color: lightblue;
+}
+#dl1{
+	border:3;
+	border-color: white;
+	background-color:transparent;
+	width: 100px;
+	height: 50px;
+	color: white;
+	font-size: x-large;
+	font-weight: bolder;
+	}
+
+.div1{
+		margin:auto;
+		text-align: right;
+	}
+#y1,#m1{
+	font-size:large;
+	opacity:0.5;
+	font-weight: bolder;
+	margin-right: 70px;
+	}
+input:focus{
+	border-style:solid;
+	border-color:#ff00ff
+}
+#welcome
+	{	
+		text-align:center;
+		margin:auto;
+		color:white;
+		font-family:微软雅黑;
+		font-size:xx-large;
+		width: 500px;
+		height: 400px;
+		border: 2px solid white;
+		
+	}
+.zaijian{
+	width: 500px;
+	height: 650px;
+	}
+#div1{
+	position:relative;
+	text-align:center;
+}
+#div2{
+	font-weight:bolder;
+	position: absolute;
+	z-indent:2;left:42%;top:0;
+}
+.welimg1{
+	width: 500px;
+	height: 400px;
+}
+.welimg2{
+	width: 500px;
+	height: 500px;
+}

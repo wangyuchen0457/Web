@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+	h1 {
+		font-weight: bold;text-align: center;
+		font-family: 微软雅黑;
+		}
+	#p1{ 
+		text-align: center;
+		}
+#ninebody{
+	background-size:100%; 
+	background-image: url("../image/lvsejianbian.jpg");
+}
+  table {
+		margin:auto;/*表格居中*/
+		border-color: black;
+		border-collapse:collapse;
+		display:none;
+		/* height: 200px; */
+		}
+	.blue{
+		background-color: lightblue; 
+		color:red;
+		font-family: 华文行楷;
+		}
+	.gray{
+		background-color: gray;
+		color:orange;
+		font-family:微软雅黑;
+		}
+	td {
+		text-align: center;
+		}
+	.sum{
+		/*用来控制统计 的显示隐藏*/
+		display: none;
+		}

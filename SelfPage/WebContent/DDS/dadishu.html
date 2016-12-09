@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>打地鼠</title>
+		<link rel="stylesheet" type="text/css" href="css/css.css"/>
+		<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function start() {
+				var div = $("#divDS");
+				var spans = $("#spansum");
+				var spant = $("#spantime");
+				
+				$("#btnStart").attr("disabled",true);	//禁用开始按钮
+				gameStart(div, spans, spant);
+			}
+			function end(){
+				gamereset();
+				$("#btnStart").attr("disabled",false);	//禁用开始按钮
+			}
+		</script>
+	</head>
+
+	<body>
+		<div style="text-align: center; ">
+			用最短的时间消失100只
+			<div id="divDS" style="width:330px; height: 330px; border: 1px solid red; margin: auto;">
+
+			</div>
+			<br />
+			<div style="width: 100px; margin: 0px auto; text-align: left;">
+				总计：100只<br /> 打中：
+				<span id="spansum" style="color: red;">0</span>只<br /> 用时：
+				<span id="spantime">0.0</span>
+			</div>
+			<br />
+			<input id="btnStart" type="button" value="开始" onclick="start()" />&nbsp;&nbsp;
+			<input type="button" value="重置" onclick="end()" />
+		</div>
+			<center><a href="../jsp/welcome.jsp">
+			<input id="bt3" type="button" name="button" value="返回" style="width: 50px;height:25px;"></a></center>
+	</body>
+
+</html>

@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="js/waves.min.js"></script>
+<link rel="stylesheet" href="css/waves.min.css" />
+<link rel="stylesheet" href="css/Css.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>主页</title>
+<script type="text/javascript" src="js/time.js"></script>
+</head>
+<body onload="time()" background="image/lansebeijing.jpg">
+<br />
+<br />
+<br />
+<br />
+<br />	
+	<div id="welcome" class="waves-effect waves-button waves-float"
+		style="text-align: center; margin: 0 30%;" title="点我有惊喜！">
+		<br />
+		<br />
+		<br /> WELCOME TO<br />MY<br />PERSONAL PAGE
+		<hr width="350" style="border: 2px solid white;" />
+		<a href="jsp/login.jsp"><input title="点击登录" id="dl1" type="button"
+			value="登录"></a>
+		<script type="text/javascript">
+			Waves.init();
+			Waves.attach('.flat-box', [ 'waves-block' ]);
+			Waves.attach('.float-box', [ 'waves-block', 'waves-float' ]);
+			Waves.attach('.waves-image');
+		</script>
+	</div>
+
+	<hr />
+	<div id="showtime" align="center" style="color: white;"></div>
+	<div align="center" style="color: white;"><span style="font-size: x-large;">&copy;</span><span>design by wangyuchen</span></div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+img {
+	cursor: pointer;
+}
+
+.ds {
+	width: 64px;
+	height: 64px;
+	background-image: url(../img/00.jpg);
+	margin: 1px;
+	float: left;
+}
