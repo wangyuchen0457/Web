@@ -9,23 +9,34 @@
 <title>欢迎页</title>
 </head>
 <body background="../image/zisejianbian.jpg" onload="time()">
-<hr/>
+	<hr />
 	<%
 		if (session.getAttribute("userid") != null) {
 	%>
 	<h4>
-		欢迎<%=session.getAttribute("userid")%>光临本系统
-			<br/>
-			<center><a href="../nineNine/NineNine.html"><input class="bt" type="button" name="nineNine" title="打印乘法表" value="打印九九乘法表" style=" width:15%;"></a>
-			<a href="../DDS/dadishu.html"><input class="bt" type="button" name="DDS" title="打地鼠" value="打地鼠游戏" style=" width:15%;"></a></center>
+		欢迎<%=session.getAttribute("userid")%>光临本系统 <br />
+		<center>
+			<a href="../nineNine/NineNine.html"><input class="bt"
+				type="button" name="nineNine" title="打印乘法表" value="打印九九乘法表"
+				style="width: 15%;"></a> <a href="../DDS/dadishu.html"><input
+				class="bt" type="button" name="DDS" title="打地鼠" value="打地鼠游戏"
+				style="width: 15%;"></a>
+		</center>
+		<center>
+			<a href="../tanchishe/tanchishe.html"><input class="bt"
+				type="button" name="tanchishe" title="贪吃蛇" value="贪吃蛇游戏"
+				style="width: 15%;"></a>
+		</center>
 	</h4>
-	
-	<img class="welimg1" alt="新年快乐" src="../image/jinian2017.png"><img class="welimg2" alt="圣诞快乐" src="../image/shengdan.png">
-	<hr/>
+
+	<img class="welimg1" alt="新年快乐" src="../image/jinian2017.png">
+	<img class="welimg2" alt="圣诞快乐" src="../image/shengdan.png">
+	<hr />
 	<div align="center">
-			<input type="image"src="../image/tuichudenglu.png" title="注销" width="20" height="20">
-			<a href="logout.jsp">
-			<input class="bt" name="button" type="button" title="点击注销" value="注销" style="background-image: url('../image/chengsebolang.gif');"></a>
+		<input type="image" src="../image/tuichudenglu.png" title="注销"
+			width="20" height="20"> <a href="logout.jsp"> <input
+			class="bt" name="button" type="button" title="点击注销" value="注销"
+			style="background-image: url('../image/chengsebolang.gif');"></a>
 	</div>
 	<%
 		} else {
@@ -37,7 +48,7 @@
 		}
 	%>
 
-<div id="showtime" align="center"></div>
+	<div id="showtime" align="center"></div>
 
 </body>
 </html>
