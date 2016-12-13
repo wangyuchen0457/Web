@@ -4,6 +4,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="../css/Css.css" type="text/css">
+<link rel="shortcut icon" href="../ico/index.ico" />
 <script type="text/javascript" src="../js/time.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>欢迎页</title>

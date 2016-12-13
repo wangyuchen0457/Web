@@ -5,6 +5,7 @@
 <head>
 <script type="text/javascript" src="../js/denglu.js"></script>
 <link rel="stylesheet" href="../css/Css.css" type="text/css">
+<link rel="shortcut icon" href="../ico/login.ico" />
 <script type="text/javascript" src="../js/time.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>登陆页面</title>
