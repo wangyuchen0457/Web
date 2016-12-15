@@ -15,7 +15,7 @@
 	<hr />
 	<div align="right" style="opacity: 0.8">
 		<img src="../image/touxiang.png" style="margin-right: 10%;"> <br />
-		<form action="login.jsp" method="post">
+		<form action="/SelfPage/servlet/Login" method="post">
 			<table>
 				<tr>
 					<td><img alt="用户名" title="输入用户名" src="../image/yonghuming.png"
@@ -48,7 +48,7 @@
 			</table>
 		</form>
 	</div>
-	<%
+	<%-- <%
 		String name = request.getParameter("usrname");
 		String password = request.getParameter("password");
 
@@ -66,7 +66,7 @@
 	<%
 		} 
 		}
-	%>
+	%> --%>
 	<br/><br/><br/><br/><br/><br/><br/><br/>
 <div id="showtime" align="right" style="margin-right: 100px;"></div>
 </body>

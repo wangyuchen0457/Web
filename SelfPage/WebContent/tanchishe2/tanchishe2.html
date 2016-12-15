@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+<style type="text/css">
+.old {
+	margin: 1px;
+	width: 18px;
+	height: 18px;
+	background-color: #ffffff;
+	float: left;
+}
+
+.new {
+	margin: 1px;
+	width: 18px;
+	height: 18px;
+	background-color: #ff0000;
+	float: left;
+}
+
+.food {
+	margin: 1px;
+	width: 18px;
+	height: 18px;
+	background-color: #0000ff;
+	float: left;
+}
+
+.wall {
+	margin: 1px;
+	width: 18px;
+	height: 18px;
+	background-color: #000000;
+	float: left;
+}
+</style>
+<script type="text/javascript">
+			var mapx = 40;	//每行的个数
+			var mapy = 20;	//行数
+			var maps = new Array();		//地图数组
+			var snakex =[3,3,3,3];		//蛇身的横坐标
+			var snakey = [3,4,5,6];		//蛇身的纵坐标
+			var foodx = 14;				//食物的横坐标
+			var foody = 8;				//食物的纵坐标
+			var k = 39;					//蛇身移动的方向   左37 上38 右39 下40
+			var s;						//蛇身循环移动
+			var time = 300;				//移动速度，数字越小，速度越快
+			var wallx = new Array();
+			var wally = new Array();
+			//创建地图
+			function gameStart(){
+				showMap();
+				showWall();
+				showSnake();
+				showFood();
+				s = setInterval("moveSnake()",time);
+			}
+			//创建并显示地图
+			function showMap(){
+				for(var j=0; j<mapy; j++){
+					maps[j] = new Array();
+					for(var i=0; i<mapx; i++){
+						//1.创建DIV
+						maps[j][i] = document.createElement("div");
+						//2.给DIV加样式
+						maps[j][i].className = "old";
+						//3.将DIV放到divmap
+						document.getElementById("divmap").appendChild(maps[j][i]);
+					}
+				}
+			}
+			//显示墙
+			function showWall(){
+				for(var i=0; i<30; i++){
+					wallx[i] = 5;
+					wally[i] = i;
+					var x = wallx[i];	//得到墙的每个横坐标
+					var y = wally[i];	//得到墙的每个纵坐标
+					maps[x][y].className = "wall";	
+				}
+			}
+			//显示蛇身
+			function showSnake(){
+				//显示蛇身
+				for(var i=0; i<snakex.length; i++){
+					var x = snakex[i];	//得到蛇身的每个横坐标
+					var y = snakey[i];	//得到蛇身的每个纵坐标
+					maps[x][y].className = "new";	
+				}
+			}
+			//擦除蛇身
+			function hideSnake(){
+				//显示蛇身
+				for(var i=0; i<snakex.length; i++){
+					var x = snakex[i];	//得到蛇身的每个横坐标
+					var y = snakey[i];	//得到蛇身的每个纵坐标
+					maps[x][y].className = "old";
+				}
+			}
+			//显示食物
+			function showFood(){
+				var state = 0; 	//0不重叠 1重叠
+				do{
+					state = 0;
+					//随机生成食物坐标
+					do{
+					foodx = parseInt(Math.random()*10000)%20;
+					foody = parseInt(Math.random()*10000)%40;
+					}while(foodx==5 && foody<30)
+					//判断是否和蛇身重叠
+					for(var i=0; i<snakex.length-1; i++){
+						if(foodx==snakex[i] && foody==snakey[i]){
+							state = 1;
+							break;
+						}
+					}	
+				}while(state==1);
+				
+				maps[foodx][foody].className = "food";
+			}
+			//蛇身移动
+			function moveSnake(){
+				//1.擦除蛇身
+				hideSnake();
+				//2.改变坐标
+				var x = snakex[0];		//保存尾部坐标
+				var y = snakey[0];
+				//2.1 从尾巴移动到头部的前一方块
+				for(var i=0; i<snakey.length-1; i++){
+					snakex[i] = snakex[i+1];
+					snakey[i] = snakey[i+1];
+				}
+				//2.2 根据按键改变头部坐标
+				if(k==37){
+					snakey[snakey.length-1]--;
+				}
+				else if(k==38){
+					snakex[snakex.length-1]--;
+				}
+				else if(k==39){
+					snakey[snakey.length-1]++;
+				}
+				else if(k==40){
+					snakex[snakex.length-1]++;
+				}
+				//2.3 边界判断
+				if(snakex[snakex.length-1]<0 || 
+					snakex[snakex.length-1]>=20 ||
+					snakey[snakey.length-1]<0 || 
+					snakey[snakey.length-1]>=40){
+					clearInterval(s);	//停止蛇身移动
+					alert("撞墙身亡，游戏结束！");
+					return;
+				}
+				//2.4 判断是否咬到自己
+				for(var i=0; i<snakex.length-1; i++){
+					//头部是否和身体重叠
+					if(snakex[snakex.length-1]==snakex[i] && snakey[snakey.length-1]==snakey[i]){
+						clearInterval(s);	//停止蛇身移动
+						alert("咬到自己，游戏结束！");
+						return;
+					}
+				}
+				//2.5撞墙结束游戏
+				for(var i=0; i<wallx.length; i++){
+					if(snakex[snakex.length-1]==wallx[i] && snakey[snakey.length-1]==wally[i]){
+						clearInterval(s);	//停止蛇身移动
+						alert("撞墙身亡，游戏结束！");
+						return;
+					}
+				}
+				//2.6 吃食物
+				if(snakex[snakex.length-1]==foodx && snakey[snakey.length-1]==foody){
+					//2.4.1 蛇身长度加1
+					for(var i=snakey.length; i>0; i--){
+						snakex[i] = snakex[i-1];
+						snakey[i] = snakey[i-1];
+					}
+					snakex[0] = x;
+					snakey[0] = y;
+					snakex[snakex.length] = foodx;
+					snakey[snakey.length] = foody;
+					//2.4.2 随机生成食物	
+					showFood();
+					//改变蛇的移动速度
+					if(time>10){
+						time = time-15;	
+					}
+					clearInterval(s);
+					s = setInterval("moveSnake()",time);
+				}
+				
+				
+				//3.显示蛇身
+				showSnake();
+				
+			}
+			//得到键盘按键的值
+			function keydown(){
+				//判断是否按的上下左右四个键
+				if(event.keyCode==37 ||event.keyCode==38 ||event.keyCode==39 ||event.keyCode==40){
+					if(!(k==37 && event.keyCode==39 || 
+						k==38 && event.keyCode==40 || 
+						k==39 && event.keyCode==37 || 
+						k==40 && event.keyCode==38)){
+						k = event.keyCode;	
+					}
+				}
+			}
+		</script>
+</head>
+
+<body onload="gameStart()" onkeydown="keydown()">
+	<div id="divmap"
+		style="border: 1px solid red; width: 800px; height: 400px; margin: 50px auto;">
+	</div>
+	<center>
+		<a href="../jsp/welcome.jsp"> <input id="bt3" type="button"
+			name="button" value="返回" style="width: 50px; height: 25px;"></a>
+	</center>
+</body>
+</html>

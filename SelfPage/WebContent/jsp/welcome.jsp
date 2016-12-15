@@ -12,10 +12,13 @@
 <body background="../image/zisejianbian.jpg" onload="time()">
 	<hr />
 	<%
-		if (session.getAttribute("userid") != null) {
+		ServletContext context= getServletContext();
+		if (context.getAttribute("userid") != null) {
+		//if (request.getAttribute("userid") != null) {
 	%>
 	<h4>
-		欢迎<%=session.getAttribute("userid")%>光临本系统 <br />
+		欢迎<%=context.getAttribute("userid")%>光临本系统 <br />
+		<%-- 欢迎<%=request.getAttribute("userid")%>光临本系统 <br /> --%>
 		<center>
 			<a href="../nineNine/NineNine.html"><input class="bt"
 				type="button" name="nineNine" title="打印乘法表" value="打印九九乘法表"
@@ -28,6 +31,16 @@
 				type="button" name="tanchishe" title="贪吃蛇" value="贪吃蛇游戏"
 				style="width: 15%;"></a>
 		</center>
+		<center>
+			<a href="../tanchishe2/tanchishe2.html"><input class="bt"
+				type="button" name="tanchishe" title="贪吃蛇" value="贪吃蛇游戏2"
+				style="width: 15%;"></a>
+		</center>
+		<center>
+			<a href="../eluosifangkuai/eluosifangkuai.html"><input class="bt"
+				type="button" name="tanchishe" title="俄罗斯方块" value="俄罗斯方块"
+				style="width: 15%;"></a>
+		</center>
 	</h4>
 
 	<img class="welimg1" alt="新年快乐" src="../image/jinian2017.png">
@@ -35,7 +48,7 @@
 	<hr />
 	<div align="center">
 		<input type="image" src="../image/tuichudenglu.png" title="注销"
-			width="20" height="20"> <a href="logout.jsp"> <input
+			width="20" height="20"> <a href="../jsp/logout.jsp"> <input
 			class="bt" name="button" type="button" title="点击注销" value="注销"
 			style="background-image: url('../image/chengsebolang.gif');"></a>
 	</div>
@@ -43,7 +56,7 @@
 		} else {
 	%>
 	<h4>
-		请先进行<a href="login.jsp">登录</a>
+		请先进行<a href="../jsp/login.jsp">登录</a>
 	</h4>
 	<%
 		}
