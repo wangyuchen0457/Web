@@ -12,32 +12,29 @@
 <body background="../image/zisejianbian.jpg" onload="time()">
 	<hr />
 	<%
-		ServletContext context= getServletContext();
-		if (context.getAttribute("userid") != null) {
+
+		if (session.getAttribute("userid") != null) {
 		//if (request.getAttribute("userid") != null) {
 	%>
 	<h4>
-		欢迎<%=context.getAttribute("userid")%>光临本系统 <br />
+		欢迎<%=session.getAttribute("userid")%>光临本系统 <br />
 		<%-- 欢迎<%=request.getAttribute("userid")%>光临本系统 <br /> --%>
 		<center>
 			<a href="../nineNine/NineNine.html"><input class="bt"
 				type="button" name="nineNine" title="打印乘法表" value="打印九九乘法表"
-				style="width: 15%;"></a> <a href="../DDS/dadishu.html"><input
+				style="width: 15%;"></a> <a href="../game/DDS/dadishu.html"><input
 				class="bt" type="button" name="DDS" title="打地鼠" value="打地鼠游戏"
 				style="width: 15%;"></a>
-		</center>
-		<center>
-			<a href="../tanchishe/tanchishe.html"><input class="bt"
+		
+			<a href="../game/tanchishe/tanchishe.html"><input class="bt"
 				type="button" name="tanchishe" title="贪吃蛇" value="贪吃蛇游戏"
 				style="width: 15%;"></a>
-		</center>
-		<center>
-			<a href="../tanchishe2/tanchishe2.html"><input class="bt"
+		
+			<a href="../game/tanchishe2/tanchishe2.html"><input class="bt"
 				type="button" name="tanchishe" title="贪吃蛇" value="贪吃蛇游戏2"
 				style="width: 15%;"></a>
-		</center>
-		<center>
-			<a href="../eluosifangkuai/eluosifangkuai.html"><input class="bt"
+		
+			<a href="../game/eluosifangkuai/eluosifangkuai.html"><input class="bt"
 				type="button" name="tanchishe" title="俄罗斯方块" value="俄罗斯方块"
 				style="width: 15%;"></a>
 		</center>

@@ -2,17 +2,17 @@ package com.wyc.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/servlet/Login")
+@WebServlet(urlPatterns="/servlet/Login",name="Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,12 +31,14 @@ public class Login extends HttpServlet {
 		String name = request.getParameter("usrname");
 		String pwd = request.getParameter("password");
 		if("wangyuchen".equals(name) && "123456".equals(pwd)){
-			ServletContext context= getServletContext();
-			//RequestDispatcher rd = context.getRequestDispatcher("/jsp/welcome.jsp");
+			//ServletContext context= getServletContext();
+			//     RequestDispatcher rd = context.getRequestDispatcher("/jsp/welcome.jsp");
 			response.sendRedirect("/SelfPage/jsp/welcome.jsp");
-			//rd.forward(request, response);
-			context.setAttribute("userid", name);
-			//request.setAttribute("userid", name);
+			//     rd.forward(request, response);
+			HttpSession session= request.getSession();
+			session.setAttribute("userid", name);
+			//context.setAttribute("userid", name);
+			//     request.setAttribute("userid", name);
 		}else{
 			//RequestDispatcher rd = request.getRequestDispatcher("/jsp/login.jsp");
 			//rd.forward(request, response);
