@@ -40,7 +40,7 @@ public class XPasswordLost implements Filter {
 		chain.doFilter(request, response);
 		}else{
 			HttpServletResponse hs = (HttpServletResponse) response;
-			System.out.println("密码为空，转到用户名缺失页面");
+			System.out.println("密码为空，转到密码缺失页面");
 			hs.sendRedirect("/SelfPage/html/passwordLost.html");
 		}
 	}

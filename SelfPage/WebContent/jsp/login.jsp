@@ -12,7 +12,7 @@
 </head>
 <body id="logbody" onload="time()">
 	<h1>登录界面</h1>
-	<hr />
+	<hr/>
 	<div align="right" style="opacity: 0.8">
 		<img src="../image/touxiang.png" style="margin-right: 10%;"> <br />
 		<form action="/SelfPage/servlet/Login" method="post">

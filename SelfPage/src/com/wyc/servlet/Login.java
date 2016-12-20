@@ -1,7 +1,11 @@
 package com.wyc.servlet;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,22 +32,46 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Map<String, String> uMap = new HashMap<String, String>();
+		ServletContext context= getServletContext();
 		String name = request.getParameter("usrname");
+		String pwd = request.getParameter("password");
+		uMap.put("wangyuchen", "123456");
+		uMap.put("chenqingbao", "123456");
+		uMap.put("zhangwei", "123456");
+		uMap.put("zhangsan", "123456");
+		uMap.put("lisi", "123456");
+		if (uMap.containsKey(name)){
+			if(uMap.get(name).equals(pwd)){
+				HttpSession session= request.getSession();
+				session.setAttribute("userid", name);
+				response.sendRedirect("/SelfPage/jsp/welcome.jsp");
+			}else{
+				response.sendRedirect("/SelfPage/jsp/loginWrong.jsp");
+			}
+		}else{
+			response.sendRedirect("/SelfPage/jsp/uNamelost.jsp");
+		}
+		
+		
+		
+		/*一个用户名*/
+/*		String name = request.getParameter("usrname");
 		String pwd = request.getParameter("password");
 		if("wangyuchen".equals(name) && "123456".equals(pwd)){
 			//ServletContext context= getServletContext();
 			//     RequestDispatcher rd = context.getRequestDispatcher("/jsp/welcome.jsp");
-			response.sendRedirect("/SelfPage/jsp/welcome.jsp");
-			//     rd.forward(request, response);
 			HttpSession session= request.getSession();
 			session.setAttribute("userid", name);
+			response.sendRedirect("/SelfPage/jsp/welcome.jsp");
+			//     rd.forward(request, response);
 			//context.setAttribute("userid", name);
 			//     request.setAttribute("userid", name);
 		}else{
 			//RequestDispatcher rd = request.getRequestDispatcher("/jsp/login.jsp");
 			//rd.forward(request, response);
 			response.sendRedirect("/SelfPage/jsp/login.jsp");
-		}
+		}*/
 	}
 
 	/**

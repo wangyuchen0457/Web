@@ -1,10 +1,10 @@
 package com.wyc.filter;
 
 import java.io.IOException;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class IsLogin
  */
-@WebFilter("/jsp/welcome.jsp")
+@WebFilter(urlPatterns={"/jsp/welcome.jsp","/game/*","/nineNine/*"})
 public class IsLogin implements Filter {
 
   
@@ -39,7 +39,7 @@ public class IsLogin implements Filter {
 			request.getRequestDispatcher("/html/noLogin.html").include(request, response);
 			HttpServletResponse hResponse=(HttpServletResponse) response;
 			System.out.println("跳转登陆界面");
-			hResponse.setHeader("refresh", "2;url=login.jsp");
+			hResponse.setHeader("refresh", "2;url=/SelfPage/jsp/login.jsp");
 			//hResponse.sendRedirect("/SelfPage/jsp/login.jsp");
 			//request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
 		}

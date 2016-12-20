@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -40,8 +41,24 @@
 		</center>
 	</h4>
 
-	<img class="welimg1" alt="新年快乐" src="../image/jinian2017.png">
-	<img class="welimg2" alt="圣诞快乐" src="../image/shengdan.png">
+<div>
+<h3>在线用户人数</h3>
+<%-- <%
+	Set all = (Set)this.getServletContext().getAttribute("online");
+%>		
+ <%= all.size()%> --%>
+<%
+	Set all = (Set)this.getServletContext().getAttribute("online");
+	Iterator iter = all.iterator();
+	int i=1;
+	while(iter.hasNext()){
+
+%>		
+	第<%=i%>位用户	<%=iter.next()%>
+<%		
+	i++;}
+%>
+</div>
 	<hr />
 	<div align="center">
 		<input type="image" src="../image/tuichudenglu.png" title="注销"

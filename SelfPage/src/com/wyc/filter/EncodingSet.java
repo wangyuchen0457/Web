@@ -30,7 +30,7 @@ public class EncodingSet implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("编码设置");
+		//System.out.println("编码设置");
 		request.setCharacterEncoding(this.charset);
 		chain.doFilter(request, response);
 	
