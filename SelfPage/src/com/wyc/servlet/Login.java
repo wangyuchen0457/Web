@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Login
  */
-@WebServlet(urlPatterns="/servlet/Login",name="Login")
+//@WebServlet(urlPatterns="/servlet/Login",name="Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,14 +36,16 @@ public class Login extends HttpServlet {
 		ServletContext context= getServletContext();
 		String name = request.getParameter("usrname");
 		String pwd = request.getParameter("password");
+		//String uip=request.getRemoteAddr();
 		uMap.put("wangyuchen", "123456");
 		uMap.put("chenqingbao", "123456");
 		uMap.put("zhangwei", "123456");
 		uMap.put("zhangsan", "123456");
-		uMap.put("lisi", "123456");
+		uMap.put("王昱晨", "123456");
 		if (uMap.containsKey(name)){
 			if(uMap.get(name).equals(pwd)){
 				HttpSession session= request.getSession();
+				//session.setAttribute("uip", uip);
 				session.setAttribute("userid", name);
 				response.sendRedirect("/SelfPage/jsp/welcome.jsp");
 			}else{

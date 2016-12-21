@@ -53,7 +53,6 @@ public class OnlineUserList implements HttpSessionAttributeListener, HttpSession
     }
 
     public void attributeReplaced(HttpSessionBindingEvent paramHttpSessionBindingEvent)  { 
-         // TODO Auto-generated method stub
     }
 
 	/**

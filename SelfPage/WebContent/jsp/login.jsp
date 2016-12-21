@@ -43,8 +43,8 @@
 						<input class="bt" name="submit" type="submit" title="点击登录"
 							value="登录" ><!-- onclick="changeA()" -->
 					</center></td>
-				<td colspan="3"><input class="bt" name="reset" type="reset"
-					title="点击重置" value="重置"></td>
+				<td colspan="3"><a href="register.jsp"><input class="bt" name="register" type="button"
+					title="点击注册新用户" value="注册"></td></a>
 			</table>
 		</form>
 	</div>
