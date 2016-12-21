@@ -9,8 +9,8 @@
 <body>
 <!-- 	<script type="text/javascript">
 	alert("用户名不存在！请重新输入");
-	</script> -->
-登录失败！用户名不存在！请重新输入!一秒后跳转
-	<%response.setHeader("refresh", "1;url=login.jsp");%>
+	</script>  -->
+ 登录失败！用户名不存在！请重新输入!一秒后跳转
+	<%response.setHeader("refresh", "2;url=login.jsp");%>
 </body>
 </html>

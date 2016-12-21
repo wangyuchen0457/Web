@@ -47,9 +47,12 @@ public class Login extends HttpServlet {
 				session.setAttribute("userid", name);
 				response.sendRedirect("/SelfPage/jsp/welcome.jsp");
 			}else{
-				response.sendRedirect("/SelfPage/jsp/loginWrong.jsp");
+/*				request.getRequestDispatcher("/jsp/loginWrong.jsp").include(request, response);
+				//response.setHeader("refresh", "1;url=/SelfPage/jsp/login.jsp");
+*/				response.sendRedirect("/SelfPage/jsp/loginWrong.jsp");
 			}
 		}else{
+			//request.getRequestDispatcher("/jsp/uNamelost.jsp").include(request, response);
 			response.sendRedirect("/SelfPage/jsp/uNamelost.jsp");
 		}
 		

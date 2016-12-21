@@ -7,11 +7,11 @@
 <title>错误的用户名密码</title>
 </head>
 <body>
-	<!-- <script type="text/javascript">
+<!-- 	 <script type="text/javascript">
 	alert("登录失败！错误的用户名密码！请重新输入");
 	
 	</script> -->
-	登录失败！错误的用户名密码！请重新输入!一秒后跳转
-	<%response.setHeader("refresh", "1;url=login.jsp");%>
+	登录失败！密码错误！请重新输入!一秒后跳转
+	<%response.setHeader("refresh", "2;url=login.jsp");%>
 </body>
 </html>
