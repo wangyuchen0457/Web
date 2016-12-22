@@ -3,7 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript" src="../js/denglu.js"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/loginCheck.js"></script>
 <link rel="stylesheet" href="../css/Css.css" type="text/css">
 <link rel="shortcut icon" href="../ico/login.ico" />
 <script type="text/javascript" src="../js/time.js"></script>
@@ -40,7 +41,7 @@
 					<td colspan="2"></td>
 				</tr>
 				<td colspan="2"><center>
-						<input class="bt" name="submit" type="submit" title="点击登录"
+						<input id="rg1" class="bt" name="submit" type="submit" title="点击登录"
 							value="登录" ><!-- onclick="changeA()" -->
 					</center></td>
 				<td colspan="3"><a href="register.jsp"><input class="bt" name="register" type="button"

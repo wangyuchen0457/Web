@@ -4,6 +4,8 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -13,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet Filter implementation class UserNameLost
  */
-@WebFilter(servletNames="Login",filterName="f1")
+//@WebFilter(servletNames={"Login"},filterName="f1")
 public class UserNameLost implements Filter {
 
     /**
@@ -42,6 +44,7 @@ public class UserNameLost implements Filter {
 			HttpServletResponse hs = (HttpServletResponse) response;
 			System.out.println("用户名为空，转到用户名缺失页面");
 			hs.sendRedirect("/SelfPage/html/userNameLost.html");
+			request.getRequestDispatcher("/html/noLogin.html").include(request, response);
 		}
 	}
 

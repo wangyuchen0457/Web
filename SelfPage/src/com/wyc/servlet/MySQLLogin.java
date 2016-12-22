@@ -25,7 +25,7 @@ public class MySQLLogin extends HttpServlet {
 			throws ServletException, IOException {
 		 try {
 			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("数据库启动成功");
+			System.out.println("数据库链接成功");
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

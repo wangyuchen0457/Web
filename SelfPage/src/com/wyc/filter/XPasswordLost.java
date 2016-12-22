@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet Filter implementation class UserNameLost
  */
-@WebFilter(servletNames="Login",filterName="f2")
+//@WebFilter(servletNames={"Login"},filterName="f2")
 public class XPasswordLost implements Filter {
 
     /**

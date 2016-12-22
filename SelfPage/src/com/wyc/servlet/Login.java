@@ -56,8 +56,8 @@ public class Login extends HttpServlet {
 		}else{
 			//request.getRequestDispatcher("/jsp/uNamelost.jsp").include(request, response);
 			response.sendRedirect("/SelfPage/jsp/uNamelost.jsp");
+
 		}
-		
 		
 		
 		/*一个用户名*/

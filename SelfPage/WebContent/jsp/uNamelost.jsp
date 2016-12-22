@@ -10,7 +10,8 @@
 <!-- 	<script type="text/javascript">
 	alert("用户名不存在！请重新输入");
 	</script>  -->
- 登录失败！用户名不存在！请重新输入!一秒后跳转
+ 	<h2>登录失败！用户名不存在！请重新输入!一秒后跳转</h2>
+ 	<center><img alt="出错啦" src="../image/chucuo.png"></center>
 	<%response.setHeader("refresh", "2;url=login.jsp");%>
 </body>
 </html>
