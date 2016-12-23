@@ -44,7 +44,7 @@ public class Register extends HttpServlet {
 				}
 			}
 			if(check==false){
-			PreparedStatement Statement = connect.prepareStatement("INSERT INTO user (name,pwd) VALUES(?,?)");
+			PreparedStatement Statement = connect.prepareStatement("INSERT INTO user (name,pwd) VALUES(?,md5(?))");
 			Statement.setString(1, name);
 			Statement.setString(2, pwd);
 			Statement.executeUpdate();
