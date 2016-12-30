@@ -45,7 +45,7 @@
 							value="登录" ><!-- onclick="changeA()" -->
 					</center></td>
 				<td colspan="3"><a href="register.jsp"><input class="bt" name="register" type="button"
-					title="点击注册新用户" value="注册"></td></a>
+					title="点击注册新用户" value="注册"></a></td>
 			</table>
 		</form>
 	</div>

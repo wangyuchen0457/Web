@@ -20,7 +20,10 @@ import java.sql.*;
 //@WebServlet(urlPatterns = "/servlet/MySQLLogin", name = "SQLLogin")
 public class MySQLLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	public static final String DBDRIVER="com.mysql.jdbc.Driver";
+	public static final String DBURL="jdbc:mysql://localhost:3306/db_selfpage";
+	public static final String DBUSER="root";
+	public static final String DBPWD="root";
 	public MySQLLogin() {
 		super();
 	}
@@ -28,7 +31,7 @@ public class MySQLLogin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		 try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(DBDRIVER);
 			System.out.println("数据库链接成功");
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
@@ -49,7 +52,7 @@ public class MySQLLogin extends HttpServlet {
 				
 				Connection connect;
 				try {
-					connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_selfpage", "root", "root");
+					connect = DriverManager.getConnection(DBURL, DBUSER, DBPWD);
 					Statement stmt = connect.createStatement();
 					ResultSet rs = stmt.executeQuery("select * from user");
 					while (rs.next()) {
@@ -65,17 +68,30 @@ public class MySQLLogin extends HttpServlet {
 						if (rs.getString("pwd").equals(pwd)) {
 							HttpSession session= request.getSession();
 							session.setAttribute("userid", name);
+							rs.close();
+							stmt.close();
+							connect.close();
+							System.out.println("关闭数据库连接");
 							response.sendRedirect("/SelfPage/jsp/welcome.jsp");
 						}else{
+							rs.close();
+							stmt.close();
+							connect.close();
+							System.out.println("关闭数据库连接");
 							response.sendRedirect("/SelfPage/jsp/loginWrong.jsp");
 						}
 					}else{
+						rs.close();
+						stmt.close();
+						connect.close();
+						System.out.println("关闭数据库连接");
 						response.sendRedirect("/SelfPage/jsp/uNamelost.jsp");
 					}
-					
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+					
+				
 			} catch (NoSuchAlgorithmException e1) {
 				e1.printStackTrace();
 			}

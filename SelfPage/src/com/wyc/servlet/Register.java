@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
 
 @WebServlet(urlPatterns="/servlet/Register",name="register")
-public class Register extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
+public class Register extends MySQLLogin {
+/*	private static final long serialVersionUID = 1L;
+	public static final String DBDRIVER="com.mysql.jdbc.Driver";
+	public static final String DBURL="jdbc:mysql://localhost:3306/db_selfpage";
+	public static final String DBUSER="root";
+	public static final String DBPWD="root";*/
 	public Register() {
 		super();
 
@@ -20,18 +23,16 @@ public class Register extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("数据库启动成功");
+			Class.forName(DBDRIVER);
+			System.out.println("数据库链接成功");
 		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			//e1.printStackTrace();
 		}
 		String name = request.getParameter("usrname");
 		String pwd = request.getParameter("password");
 		Boolean check=false;
 		Connection connect;
 		try {
-			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_selfpage", "root", "root");
+			connect = DriverManager.getConnection(DBURL,DBUSER,DBPWD);
 			Statement stmt = connect.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from user");
 			while (rs.next()) {
@@ -52,9 +53,10 @@ public class Register extends HttpServlet {
 			}else{
 				response.sendRedirect("/SelfPage/jsp/uNameexist.jsp");
 			}
+			rs.close();
+			stmt.close();
+			connect.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
 		}
 		
 	}

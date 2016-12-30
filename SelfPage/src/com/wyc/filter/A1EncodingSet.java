@@ -9,15 +9,17 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
+import javax.servlet.http.HttpServletRequest;
+import javax.websocket.Session;
 
 /**
  * Servlet Filter implementation class EncodingSet
  */
 @WebFilter(urlPatterns = { "/*" }, initParams = { @WebInitParam(name = "charset", value = "UTF-8") }, filterName = "f0")
-public class EncodingSet implements Filter {
+public class A1EncodingSet implements Filter {
 	private String charset;
 
-	public EncodingSet() {
+	public A1EncodingSet() {
 
 	}
 
@@ -30,7 +32,7 @@ public class EncodingSet implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		//System.out.println("编码设置");
+		System.out.println("编码设置");
 		request.setCharacterEncoding(this.charset);
 		response.setCharacterEncoding(this.charset);
 		chain.doFilter(request, response);

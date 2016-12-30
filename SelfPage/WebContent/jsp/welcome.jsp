@@ -14,7 +14,7 @@
 	<hr />
 	<%
 
-		if (session.getAttribute("userid") != null) {
+		//if (session.getAttribute("userid") != null) {
 		//if (request.getAttribute("userid") != null) {
 	%>
 	<h4>
@@ -37,6 +37,9 @@
 		
 			<a href="../game/eluosifangkuai/eluosifangkuai.html"><input class="bt"
 				type="button" name="tanchishe" title="俄罗斯方块" value="俄罗斯方块"
+				style="width: 15%;"></a>
+			<a href="AdminLogin.jsp"><input class="bt"
+				type="button" name="guanliyuan" title="管理员界面" value="管理员界面"
 				style="width: 15%;"></a>
 		</center>
 	</h4>
@@ -66,15 +69,15 @@
 			class="bt" name="button" type="button" title="点击注销" value="注销"
 			style="background-image: url('../image/chengsebolang.gif');"></a>
 	</div>
-	<%
+<%-- 	<%
 		} else {
-	%>
+	%> 
 	<h4>
 		请先进行<a href="../jsp/login.jsp">登录</a>
 	</h4>
 	<%
 		}
-	%>
+	%> --%>
 
 	<div id="showtime" align="center"></div>
 

@@ -1,7 +1,6 @@
 package com.wyc.filter;
 
 import java.io.IOException;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -14,42 +13,33 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet Filter implementation class IsLogin
+ * Servlet Filter implementation class AdminIsLogin
  */
-@WebFilter(urlPatterns={"/jsp/welcome.jsp","/game/*","/nineNine/*","/admin/*"})
-public class IsLogin implements Filter {
-
-  
-    public IsLogin() {
-        
+@WebFilter("/admin/*")
+public class JAdminIsLogin implements Filter {
+    public JAdminIsLogin() {
     }
 	public void destroy() {
-		
 	}
+
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest hr= (HttpServletRequest) request;
 		HttpSession session=hr.getSession();
-		System.out.println("是否登陆过滤器执行");
-		String uid=(String) session.getAttribute("userid");
-		if (uid!=null && !"".equals(uid)) {
+		String adminid=(String) session.getAttribute("aPwd");
+		if (adminid!=null && !"".equals(adminid)) {
 			System.out.println("用户已登录");
 			chain.doFilter(request, response);
 		}else{
 			System.out.println("用户未登录");
-			request.getRequestDispatcher("/html/noLogin.html").include(request, response);
+			request.getRequestDispatcher("/admin/adminWrong.jsp").include(request, response);
 			HttpServletResponse hResponse=(HttpServletResponse) response;
 			System.out.println("跳转登陆界面");
-			hResponse.setHeader("refresh", "2;url=/SelfPage/jsp/login.jsp");
-			//hResponse.sendRedirect("/SelfPage/jsp/login.jsp");
-			//request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
-		}
+			hResponse.setHeader("refresh", "2;url=/SelfPage/jsp/AdminLogin.jsp");
+			}
 	}
 
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		//System.out.println("是否登陆过滤器初始化");
+
 	}
 
 }
